@@ -20,7 +20,7 @@ export type Game = {
   prices: {
     discount?: number
     old?: number
-    currrent?: number
+    current?: number
   }
   details: {
     category: string

@@ -25,8 +25,8 @@ const ProductsList = ({ background, title, games }: Props) => {
     if (game.prices.discount) {
       tags.push(`${game.prices.discount}%`)
     }
-    if (game.prices.currrent) {
-      tags.push(formataPreco(game.prices.currrent))
+    if (game.prices.current) {
+      tags.push(formataPreco(game.prices.current))
     }
 
     return tags
@@ -38,15 +38,17 @@ const ProductsList = ({ background, title, games }: Props) => {
         <h2>{title}</h2>
         <S.List>
           {games.map((game) => (
-            <Product
-              key={game.id}
-              category={game.details.category}
-              description={game.description}
-              image={game.media.thumbnail}
-              infos={getGameTags(game)}
-              system={game.details.system}
-              title={game.name}
-            />
+            <li key={game.id}>
+              <Product
+                id={game.id}
+                category={game.details.category}
+                description={game.description}
+                image={game.media.thumbnail}
+                infos={getGameTags(game)}
+                system={game.details.system}
+                title={game.name}
+              />
+            </li>
           ))}
         </S.List>
       </div>

@@ -1,7 +1,18 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { TagContainer } from '../Tag/styles'
 
+const fadeInAnimation = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`
+
 export const Imagem = styled.div`
+  animation: ${fadeInAnimation} 1s ease-in;
+
   width: 100%;
   height: 560px;
   display: block;
@@ -45,3 +56,5 @@ export const Precos = styled.p`
     text-decoration: line-through;
   }
 `
+
+const ImageContainer = styled(Imagem)``

@@ -28,13 +28,14 @@ const mock: GalleryItem[] = [
 type Props = {
   defaultCover: string
   name: string
+  itens: GalleryItem[]
 }
 
 interface ModalState extends GalleryItem {
   isVisible: boolean
 }
 
-const Galery = ({ defaultCover, name }: Props) => {
+const Galery = ({ defaultCover, name, itens }: Props) => {
   const [modal, setModal] = useState<ModalState>({
     isVisible: false,
     type: 'image',
@@ -65,7 +66,7 @@ const Galery = ({ defaultCover, name }: Props) => {
     <>
       <Section title="Galeria" background="black">
         <S.Itens>
-          {mock.map((media, index) => (
+          {itens.map((media, index) => (
             <S.Item
               key={media.url}
               onClick={() => {
