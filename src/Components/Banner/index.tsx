@@ -12,7 +12,6 @@ const Banner = () => {
   const { data: game, isLoading } = useGetFeaturedGameQuery()
 
   // const [game, setGame] = useState<Game>()
-
   // useEffect(() => {
   //   fetch('https://fake-api-tau.vercel.app/api/eplay/destaque')
   //     .then((res) => res.json())

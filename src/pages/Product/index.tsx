@@ -10,8 +10,7 @@ import { useGetGameQuery } from '../../services/api'
 const Product = () => {
   const { id } = useParams()
   const { data: game } = useGetGameQuery(id!)
-
-  // const [game, setGame] = useState<Game>()
+  // const [game, setGame] = useState<Game>()s
   // useEffect(() => {
   //   fetch(`https://fake-api-tau.vercel.app/api/eplay/jogos/${id}`)
   //     .then((res) => res.json())
