@@ -14,10 +14,11 @@ export const Imagem = styled.div`
   animation: ${fadeInAnimation} 1s ease-in;
 
   width: 100%;
-  height: 560px;
+  height: 490px;
   display: block;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   font-weight: bold;
   position: relative;
 
@@ -48,6 +49,7 @@ export const Imagem = styled.div`
 export const Titulo = styled.h2`
   font-size: 36px;
   max-width: 450px;
+  margin-bottom: 16px;
 `
 export const Precos = styled.p`
   font-size: 24px;
