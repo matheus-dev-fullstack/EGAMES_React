@@ -1,13 +1,5 @@
 import ProductsList from '../../Components/ProductsList'
 
-import resident from '../../assets/images/resident.png'
-import diablo from '../../assets/images/diablo.png'
-import zelda from '../../assets/images/zelda.png'
-import starWars from '../../assets/images/star_wars.png'
-import { title } from 'process'
-import { Game } from '../Home'
-import { updateExpressionStatement } from 'typescript'
-import { useEffect, useState } from 'react'
 import {
   useGetActionGamesQuery,
   useGetFightGamesQuery,

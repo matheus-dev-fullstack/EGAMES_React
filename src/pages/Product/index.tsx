@@ -1,10 +1,9 @@
 import { useParams } from 'react-router-dom'
+
 import Hero from '../../Components/Hero'
 import Section from '../../Components/Section'
 import Galery from '../../Components/Galery'
-import resident from '../../assets/images/resident.png'
-import { useEffect, useState } from 'react'
-import { Game } from '../Home'
+
 import { useGetGameQuery } from '../../services/api'
 
 const Product = () => {

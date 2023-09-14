@@ -10,7 +10,7 @@ const fadeInAnimation = keyframes`
   }
 `
 
-export const Imagem = styled.div`
+export const Image = styled.div`
   animation: ${fadeInAnimation} 1s ease-in;
 
   width: 100%;
@@ -46,12 +46,12 @@ export const Imagem = styled.div`
     content: '';
   }
 `
-export const Titulo = styled.h2`
+export const Title = styled.h2`
   font-size: 36px;
   max-width: 450px;
   margin-bottom: 16px;
 `
-export const Precos = styled.p`
+export const Prices = styled.p`
   font-size: 24px;
 
   span {
@@ -59,4 +59,4 @@ export const Precos = styled.p`
   }
 `
 
-const ImageContainer = styled(Imagem)``
+const ImageContainer = styled(Image)``

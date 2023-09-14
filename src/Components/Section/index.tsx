@@ -1,4 +1,3 @@
-import { isBreakOrContinueStatement } from 'typescript'
 import * as S from './styles'
 
 export type Props = {
