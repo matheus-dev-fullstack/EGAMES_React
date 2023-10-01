@@ -3,6 +3,8 @@ import Button from '../Button'
 import { Image, Title, Prices } from './styles'
 import { useGetFeaturedGameQuery } from '../../services/api'
 import { parseToBrl } from '../../utils'
+import { MoonLoader } from 'react-spinners'
+import Loader from '../Loader'
 
 const Banner = () => {
   const { data: game } = useGetFeaturedGameQuery()
@@ -15,7 +17,7 @@ const Banner = () => {
   // }, [])
 
   if (!game) {
-    return <h3>Carregando...</h3>
+    return <Loader />
   }
 
   return (
