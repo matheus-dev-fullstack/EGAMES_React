@@ -1,13 +1,9 @@
 import Section from '../Section'
-
 import play from '../../assets/images/botao-play 1.png'
 import zoom from '../../assets/images/zoom.png'
 import closeIcon from '../../assets/images/close.png'
-
 import { useState } from 'react'
-import { GalleryItem } from '../../pages/Home'
 import * as S from './styles'
-
 type Props = {
   defaultCover: string
   name: string
