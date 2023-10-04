@@ -1,19 +1,19 @@
-import { useParams } from 'react-router-dom'
+import { useParams } from "react-router-dom";
 
-import Hero from '../../Components/Hero'
-import Section from '../../Components/Section'
-import Galery from '../../Components/Galery'
-import Loader from '../../Components/Loader'
+import Hero from "../../Components/Hero";
+import Section from "../../Components/Section";
+import Galery from "../../Components/Galery";
+import Loader from "../../Components/Loader";
 
-import { useGetGameQuery } from '../../services/api'
+import { useGetGameQuery } from "../../services/api";
 
 type GameParams = {
-  id: string
-}
+  id: string;
+};
 
 const Product = () => {
-  const { id } = useParams() as GameParams
-  const { data: game } = useGetGameQuery(id)
+  const { id } = useParams() as GameParams;
+  const { data: game } = useGetGameQuery(id);
   // const [game, setGame] = useState<Game>()s
   // useEffect(() => {
   //   fetch(`https://fake-api-tau.vercel.app/api/eplay/jogos/${id}`)
@@ -22,7 +22,7 @@ const Product = () => {
   // }, [id])
 
   if (!game) {
-    return <Loader />
+    return <Loader />;
   }
 
   return (
@@ -39,8 +39,8 @@ const Product = () => {
           {game.details.developer}
           <br />
           <b> Editora:</b> {game.details.publisher} <br />
-          <b>Idiomas: </b>O jogo oferece suporte a diversos idiomas, incluindo{' '}
-          {game.details.languages.join(', ')}
+          <b>Idiomas: </b>O jogo oferece suporte a diversos idiomas, incluindo{" "}
+          {game.details.languages.join(", ")}
         </p>
       </Section>
       <Galery
@@ -49,7 +49,7 @@ const Product = () => {
         itens={game.media.gallery}
       />
     </>
-  )
-}
+  );
+};
 
-export default Product
+export default Product;

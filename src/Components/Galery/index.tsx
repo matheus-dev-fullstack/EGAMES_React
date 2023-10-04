@@ -1,45 +1,47 @@
-import Section from '../Section'
-import play from '../../assets/images/botao-play 1.png'
-import zoom from '../../assets/images/zoom.png'
-import closeIcon from '../../assets/images/close.png'
-import { useState } from 'react'
-import * as S from './styles'
+import Section from "../Section";
+import play from "../../assets/images/botao-play 1.png";
+import zoom from "../../assets/images/zoom.png";
+import closeIcon from "../../assets/images/close.png";
+import { useState } from "react";
+import * as S from "./styles";
+
 type Props = {
-  defaultCover: string
-  name: string
-  itens: GalleryItem[]
-}
+  defaultCover: string;
+  name: string;
+  itens: GalleryItem[];
+};
 
 interface ModalState extends GalleryItem {
-  isVisible: boolean
+  isVisible: boolean;
 }
 
 const Galery = ({ defaultCover, name, itens }: Props) => {
   const [modal, setModal] = useState<ModalState>({
     isVisible: false,
-    type: 'image',
-    url: ''
-  })
-  const [modalEstaAberto, setModalEstaAberto] = useState(false)
-  const [modalUrl, setModalUrl] = useState('')
+    type: "image",
+    url: "",
+  });
+
+  // const [modalEstaAberto, setModalEstaAberto] = useState(false);
+  // const [modalUrl, setModalUrl] = useState("");
 
   const getMediaCover = (item: GalleryItem) => {
-    if (item.type === 'image') return item.url
-    return defaultCover
-  }
+    if (item.type === "image") return item.url;
+    return defaultCover;
+  };
 
   const getMediaIcon = (item: GalleryItem) => {
-    if (item.type === 'image') return zoom
-    return play
-  }
+    if (item.type === "image") return zoom;
+    return play;
+  };
 
   const closeModal = () => {
     setModal({
       isVisible: false,
-      type: 'image',
-      url: ''
-    })
-  }
+      type: "image",
+      url: "",
+    });
+  };
 
   return (
     <>
@@ -52,8 +54,8 @@ const Galery = ({ defaultCover, name, itens }: Props) => {
                 setModal({
                   isVisible: true,
                   type: media.type,
-                  url: media.url
-                })
+                  url: media.url,
+                });
               }}
             >
               <img
@@ -70,13 +72,18 @@ const Galery = ({ defaultCover, name, itens }: Props) => {
           ))}
         </S.Itens>
       </Section>
-      <S.Modal className={modal.isVisible ? 'visible' : ''}>
+      <S.Modal className={modal.isVisible ? "visible" : ""}>
         <S.ModalContent className="container">
           <header>
             <h4>{name}</h4>
-            <img className="close-icon" src={closeIcon} alt="Ícone de fechar" onClick={closeModal} />
+            <img
+              className="close-icon"
+              src={closeIcon}
+              alt="Ícone de fechar"
+              onClick={closeModal}
+            />
           </header>
-          {modal.type === 'image' ? (
+          {modal.type === "image" ? (
             <img src={modal.url} />
           ) : (
             <iframe frameBorder={0} src={modal.url}></iframe>
@@ -84,13 +91,13 @@ const Galery = ({ defaultCover, name, itens }: Props) => {
         </S.ModalContent>
         <div
           onClick={() => {
-            closeModal()
+            closeModal();
           }}
           className="overlay"
         ></div>
       </S.Modal>
     </>
-  )
-}
+  );
+};
 
-export default Galery
+export default Galery;

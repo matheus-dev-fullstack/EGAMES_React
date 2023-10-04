@@ -1,6 +1,6 @@
-import * as S from './styles'
+import * as S from "./styles";
 
-const currentYear = new Date().getFullYear()
+const currentYear = new Date().getFullYear();
 
 const Footer = () => (
   <S.Container>
@@ -74,6 +74,6 @@ const Footer = () => (
       <p>{currentYear} - &copy; E-PLAY Todos os direitos reservados</p>
     </div>
   </S.Container>
-)
+);
 
-export default Footer
+export default Footer;

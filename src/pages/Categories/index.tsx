@@ -1,12 +1,12 @@
-import ProductsList from '../../Components/ProductsList'
+import ProductsList from "../../Components/ProductsList";
 
 import {
   useGetActionGamesQuery,
   useGetFightGamesQuery,
   useGetRpgGamesQuery,
   useGetSimulationGamesQuery,
-  useGetSportGamesQuery
-} from '../../services/api'
+  useGetSportGamesQuery,
+} from "../../services/api";
 
 const Categories = () => {
   // const [gamesAcao, setGamesAcao] = useState<Game[]>([])
@@ -34,14 +34,14 @@ const Categories = () => {
   // }, [])
 
   const { data: actionGames, isLoading: isLoadingAction } =
-    useGetActionGamesQuery()
+    useGetActionGamesQuery();
   const { data: fightGames, isLoading: isLoadingFight } =
-    useGetFightGamesQuery()
-  const { data: rpgGames, isLoading: isLoadingRpg } = useGetRpgGamesQuery()
+    useGetFightGamesQuery();
+  const { data: rpgGames, isLoading: isLoadingRpg } = useGetRpgGamesQuery();
   const { data: sportGames, isLoading: isLoadingSport } =
-    useGetSportGamesQuery()
+    useGetSportGamesQuery();
   const { data: simulationGames, isLoading: isLoadingSimulation } =
-    useGetSimulationGamesQuery()
+    useGetSimulationGamesQuery();
 
   return (
     <>
@@ -66,7 +66,13 @@ const Categories = () => {
         id="fight"
         isLoading={isLoadingFight}
       />
-      <ProductsList games={rpgGames} title="RPG" background="gray" id="rpg" />
+      <ProductsList
+        games={rpgGames}
+        title="RPG"
+        background="gray"
+        id="rpg"
+        isLoading={isLoadingRpg}
+      />
       <ProductsList
         games={simulationGames}
         title="Simulação"
@@ -75,6 +81,6 @@ const Categories = () => {
         isLoading={isLoadingSimulation}
       />
     </>
-  )
-}
-export default Categories
+  );
+};
+export default Categories;

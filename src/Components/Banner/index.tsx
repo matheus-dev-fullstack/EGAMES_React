@@ -1,13 +1,12 @@
-import Tag from '../Tag'
-import Button from '../Button'
-import { Image, Title, Prices } from './styles'
-import { useGetFeaturedGameQuery } from '../../services/api'
-import { parseToBrl } from '../../utils'
-import { MoonLoader } from 'react-spinners'
-import Loader from '../Loader'
+import Tag from "../Tag";
+import Button from "../Button";
+import { Image, Title, Prices } from "./styles";
+import { useGetFeaturedGameQuery } from "../../services/api";
+import { parseToBrl } from "../../utils";
+import Loader from "../Loader";
 
 const Banner = () => {
-  const { data: game } = useGetFeaturedGameQuery()
+  const { data: game } = useGetFeaturedGameQuery();
 
   // const [game, setGame] = useState<Game>()
   // useEffect(() => {
@@ -17,7 +16,7 @@ const Banner = () => {
   // }, [])
 
   if (!game) {
-    return <Loader />
+    return <Loader />;
   }
 
   return (
@@ -40,7 +39,7 @@ const Banner = () => {
         </Button>
       </div>
     </Image>
-  )
-}
+  );
+};
 
-export default Banner
+export default Banner;

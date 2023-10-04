@@ -1,15 +1,15 @@
-import Tag from '../Tag'
-import * as S from './styles'
+import Tag from "../Tag";
+import * as S from "./styles";
 
 type Props = {
-  title: string
-  category: string
-  system: string
-  description: string
-  infos: string[]
-  image: string
-  id: number
-}
+  title: string;
+  category: string;
+  system: string;
+  description: string;
+  infos: string[];
+  image: string;
+  id: number;
+};
 
 const Product = ({
   title,
@@ -18,14 +18,14 @@ const Product = ({
   description,
   infos,
   image,
-  id
+  id,
 }: Props) => {
   const getDescription = (text: string) => {
     if (text.length > 95) {
-      return text.slice(0, 92) + '...'
+      return text.slice(0, 92) + "...";
     }
-    return text
-  }
+    return text;
+  };
 
   return (
     <S.Card
@@ -43,7 +43,7 @@ const Product = ({
       <Tag>{system}</Tag>
       <S.Descricao>{getDescription(description)}</S.Descricao>
     </S.Card>
-  )
-}
+  );
+};
 
-export default Product
+export default Product;

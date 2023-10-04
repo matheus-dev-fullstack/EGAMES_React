@@ -1,12 +1,12 @@
-import Banner from '../../Components/Banner'
+import Banner from "../../Components/Banner";
 
-import ProductsList from '../../Components/ProductsList'
+import ProductsList from "../../Components/ProductsList";
 
-import { useGetOnSaleQuery, useGetSoonQuery } from '../../services/api'
+import { useGetOnSaleQuery, useGetSoonQuery } from "../../services/api";
 
 const Home = () => {
-  const { data: onSaleGames, isLoading: isLoadingSale } = useGetOnSaleQuery()
-  const { data: soonGames, isLoading: isLoadingSoon } = useGetSoonQuery()
+  const { data: onSaleGames, isLoading: isLoadingSale } = useGetOnSaleQuery();
+  const { data: soonGames, isLoading: isLoadingSoon } = useGetSoonQuery();
 
   return (
     <>
@@ -26,7 +26,7 @@ const Home = () => {
         isLoading={isLoadingSoon}
       />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

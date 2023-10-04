@@ -1,101 +1,101 @@
-import { useEffect, useState } from 'react'
-import * as Yup from 'yup'
-import { Navigate, useFetcher } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useEffect, useState } from "react";
+import * as Yup from "yup";
+import { Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-import { useFormik } from 'formik'
-import { InputGroup, Row, TagButton } from './styles'
-import { usePurchaseMutation } from '../../services/api'
-import { RootReducer } from '../../store'
+import { useFormik } from "formik";
+import { InputGroup, Row, TagButton } from "./styles";
+import { usePurchaseMutation } from "../../services/api";
+import { RootReducer } from "../../store";
 
-import creditCard from '../../assets/images/cartao.png'
-import barCode from '../../assets/images/boleto.png'
-import Card from '../../Components/Card'
-import Button from '../../Components/Button'
-import { getTotalPrice, parseToBrl } from '../../utils'
+import creditCard from "../../assets/images/cartao.png";
+import barCode from "../../assets/images/boleto.png";
+import Card from "../../Components/Card";
+import Button from "../../Components/Button";
+import { getTotalPrice, parseToBrl } from "../../utils";
 
 type Installment = {
-  quantity: number
-  amount: number
-  formattedAmount: string
-}
+  quantity: number;
+  amount: number;
+  formattedAmount: string;
+};
 
 const Checkout = () => {
-  const [payWithCard, setPayWithCard] = useState(false)
-  const [purchase, { data, isSuccess, isLoading }] = usePurchaseMutation()
-  const { items } = useSelector((state: RootReducer) => state.cart)
-  const [installments, setInstallments] = useState<Installment[]>([])
+  const [payWithCard, setPayWithCard] = useState(false);
+  const [purchase, { data, isSuccess, isLoading }] = usePurchaseMutation();
+  const { items } = useSelector((state: RootReducer) => state.cart);
+  const [installments, setInstallments] = useState<Installment[]>([]);
 
-  const totalPrice = getTotalPrice(items)
+  const totalPrice = getTotalPrice(items);
 
   const form = useFormik({
     initialValues: {
-      fullName: '',
-      email: '',
-      cpf: '',
-      deliveryEmail: '',
-      confirmDeliveryEmail: '',
-      cardOwner: '',
-      cpfCardOwner: '',
-      cardDisplayName: '',
-      cardNumber: '',
-      expiresMonth: '',
-      expiresYear: '',
-      cardCode: '',
-      installments: 1
+      fullName: "",
+      email: "",
+      cpf: "",
+      deliveryEmail: "",
+      confirmDeliveryEmail: "",
+      cardOwner: "",
+      cpfCardOwner: "",
+      cardDisplayName: "",
+      cardNumber: "",
+      expiresMonth: "",
+      expiresYear: "",
+      cardCode: "",
+      installments: 1,
     },
     validationSchema: Yup.object({
       fullName: Yup.string()
-        .min(5, 'O nome precisa ter pelo menos 5 caracteres')
-        .required('O campo é obrigatório'),
+        .min(5, "O nome precisa ter pelo menos 5 caracteres")
+        .required("O campo é obrigatório"),
       email: Yup.string()
-        .email('E-mail inválido')
-        .required('O campo é obrigatório'),
+        .email("E-mail inválido")
+        .required("O campo é obrigatório"),
       cpf: Yup.string()
-        .min(14, 'O campo precisa ter 14 caracteres')
-        .max(14, 'O campo precisa ter 14 caracteres')
-        .required('O campo é obrigatório'),
+        .min(14, "O campo precisa ter 14 caracteres")
+        .max(14, "O campo precisa ter 14 caracteres")
+        .required("O campo é obrigatório"),
       deliveryEmail: Yup.string()
-        .email('E-mail inválido')
-        .required('O campo é obrigatório'),
+        .email("E-mail inválido")
+        .required("O campo é obrigatório"),
       confirmDeliveryEmail: Yup.string()
-        .oneOf([Yup.ref('deliveryEmail')], 'Os e-mails não coincidem')
-        .required('O campo é obrigatório'),
+        .oneOf([Yup.ref("deliveryEmail")], "Os e-mails não coincidem")
+        .required("O campo é obrigatório"),
 
       cardOwner: Yup.string().when((values, schema) =>
-        payWithCard ? schema.required('O campo é obrigatório') : schema
+        payWithCard ? schema.required("O campo é obrigatório") : schema
       ),
       cpfCardOwner: Yup.string().when((values, schema) =>
-        payWithCard ? schema.required('O campo é obrigatório') : schema
+        payWithCard ? schema.required("O campo é obrigatório") : schema
       ),
       cardDisplayName: Yup.string().when((values, schema) =>
-        payWithCard ? schema.required('O campo é obrigatório') : schema
+        payWithCard ? schema.required("O campo é obrigatório") : schema
       ),
       cardNumber: Yup.string().when((values, schema) =>
-        payWithCard ? schema.required('O campo é obrigatório') : schema
+        payWithCard ? schema.required("O campo é obrigatório") : schema
       ),
       expiresMonth: Yup.string().when((values, schema) =>
-        payWithCard ? schema.required('O campo é obrigatório') : schema
+        payWithCard ? schema.required("O campo é obrigatório") : schema
       ),
       expiresYear: Yup.string().when((values, schema) =>
-        payWithCard ? schema.required('O campo é obrigatório') : schema
+        payWithCard ? schema.required("O campo é obrigatório") : schema
       ),
       cardCode: Yup.string().when((values, schema) =>
-        payWithCard ? schema.required('O campo é obrigatório') : schema
+        payWithCard ? schema.required("O campo é obrigatório") : schema
       ),
       installments: Yup.string().when((values, schema) =>
-        payWithCard ? schema.required('O campo é obrigatório') : schema
-      )
+        payWithCard ? schema.required("O campo é obrigatório") : schema
+      ),
     }),
     onSubmit: (values) => {
       purchase({
         billing: {
           document: values.cpf,
           email: values.email,
-          name: values.fullName
+          name: values.fullName,
         },
         delivery: {
-          email: values.deliveryEmail
+          email: values.deliveryEmail,
         },
         payment: {
           installments: 1,
@@ -106,53 +106,53 @@ const Checkout = () => {
             number: values.cardNumber,
             owner: {
               document: values.cpfCardOwner,
-              name: values.cardOwner
+              name: values.cardOwner,
             },
             expires: {
               month: 1,
-              year: 2023
-            }
-          }
+              year: 2023,
+            },
+          },
         },
         products: [
           {
             id: 1,
-            price: 10
-          }
-        ]
-      })
-    }
-  })
+            price: 10,
+          },
+        ],
+      });
+    },
+  });
 
   const checkInputHasError = (fielName: string) => {
-    const isTouched = fielName in form.touched
-    const isInvalid = fielName in form.errors
-    const hasError = isTouched && isInvalid
+    const isTouched = fielName in form.touched;
+    const isInvalid = fielName in form.errors;
+    const hasError = isTouched && isInvalid;
 
-    return hasError
-  }
+    return hasError;
+  };
 
   useEffect(() => {
     const calculateInstallments = () => {
-      const installmentsArray: Installment[] = []
+      const installmentsArray: Installment[] = [];
       for (let i = 1; i <= 6; i++) {
         installmentsArray.push({
           quantity: i,
           amount: totalPrice / i,
-          formattedAmount: parseToBrl(totalPrice / i)
-        })
+          formattedAmount: parseToBrl(totalPrice / i),
+        });
       }
 
-      return installmentsArray
-    }
+      return installmentsArray;
+    };
 
     if (totalPrice > 0) {
-      setInstallments(calculateInstallments())
+      setInstallments(calculateInstallments());
     }
-  }, [totalPrice])
+  }, [totalPrice]);
 
   if (items.length === 0) {
-    return <Navigate to="/" />
+    return <Navigate to="/" />;
   }
 
   return (
@@ -165,11 +165,11 @@ const Checkout = () => {
               sucesso! <br />
               Abaixo estão os detalhes da sua compra: <br />
               Número do pedido: {data.orderId} <br />
-              Forma de pagamento:{' '}
-              {payWithCard ? 'Cartão de crédito' : 'Boleto Bancário'}
+              Forma de pagamento:{" "}
+              {payWithCard ? "Cartão de crédito" : "Boleto Bancário"}
             </p>
             <p className="margin-top">
-              {' '}
+              {" "}
               Caso tenha optado pelo pagamento via boleto bancário, lembre-se de
               que a confirmação pode levar até 3 dias úteis. Após a aprovação do
               pagamento, enviaremos um e-mail contendo o código de ativação do
@@ -185,7 +185,7 @@ const Checkout = () => {
               Pedimos que verifique sua caixa de entrada e a pasta de spam para
               garantir que receba nossa comunicação. Caso tenha alguma dúvida ou
               necessite de mais informações, por favor, entre em contato conosco
-              através dos nossos canais de atendimento ao cliente.{' '}
+              através dos nossos canais de atendimento ao cliente.{" "}
             </p>
             <p className="margin-top">
               Agradecemos por escolher a EPLAY e esperamos que desfrute do seu
@@ -207,7 +207,7 @@ const Checkout = () => {
                     value={form.values.fullName}
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
-                    className={checkInputHasError('fullName') ? 'error' : ''}
+                    className={checkInputHasError("fullName") ? "error" : ""}
                   />
                 </InputGroup>
                 <InputGroup>
@@ -219,7 +219,7 @@ const Checkout = () => {
                     value={form.values.email}
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
-                    className={checkInputHasError('email') ? 'error' : ''}
+                    className={checkInputHasError("email") ? "error" : ""}
                   />
                 </InputGroup>
                 <InputGroup>
@@ -231,7 +231,7 @@ const Checkout = () => {
                     value={form.values.cpf}
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
-                    className={checkInputHasError('cpf') ? 'error' : ''}
+                    className={checkInputHasError("cpf") ? "error" : ""}
                   />
                 </InputGroup>
               </Row>
@@ -249,7 +249,7 @@ const Checkout = () => {
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
                     className={
-                      checkInputHasError('deliveryEmail') ? 'error' : ''
+                      checkInputHasError("deliveryEmail") ? "error" : ""
                     }
                   />
                 </InputGroup>
@@ -265,7 +265,7 @@ const Checkout = () => {
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
                     className={
-                      checkInputHasError('confirmDeliveryEmail') ? 'error' : ''
+                      checkInputHasError("confirmDeliveryEmail") ? "error" : ""
                     }
                   />
                 </InputGroup>
@@ -306,7 +306,7 @@ const Checkout = () => {
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
                           className={
-                            checkInputHasError('cardOwner') ? 'error' : ''
+                            checkInputHasError("cardOwner") ? "error" : ""
                           }
                         />
                       </InputGroup>
@@ -322,7 +322,7 @@ const Checkout = () => {
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
                           className={
-                            checkInputHasError('cpfCardOwner') ? 'error' : ''
+                            checkInputHasError("cpfCardOwner") ? "error" : ""
                           }
                         />
                       </InputGroup>
@@ -338,7 +338,7 @@ const Checkout = () => {
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
                           className={
-                            checkInputHasError('cardDisplayName') ? 'error' : ''
+                            checkInputHasError("cardDisplayName") ? "error" : ""
                           }
                         />
                       </InputGroup>
@@ -352,7 +352,7 @@ const Checkout = () => {
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
                           className={
-                            checkInputHasError('cardNumber') ? 'error' : ''
+                            checkInputHasError("cardNumber") ? "error" : ""
                           }
                         />
                       </InputGroup>
@@ -366,7 +366,7 @@ const Checkout = () => {
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
                           className={
-                            checkInputHasError('expiresMonth') ? 'error' : ''
+                            checkInputHasError("expiresMonth") ? "error" : ""
                           }
                         />
                       </InputGroup>
@@ -380,7 +380,7 @@ const Checkout = () => {
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
                           className={
-                            checkInputHasError('expiresYear') ? 'error' : ''
+                            checkInputHasError("expiresYear") ? "error" : ""
                           }
                         />
                       </InputGroup>
@@ -394,7 +394,7 @@ const Checkout = () => {
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
                           className={
-                            checkInputHasError('cardCode') ? 'error' : ''
+                            checkInputHasError("cardCode") ? "error" : ""
                           }
                         />
                       </InputGroup>
@@ -409,12 +409,12 @@ const Checkout = () => {
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
                           className={
-                            checkInputHasError('installments') ? 'error' : ''
+                            checkInputHasError("installments") ? "error" : ""
                           }
                         >
                           {installments.map((installment) => (
                             <option key={installment.quantity}>
-                              {installment.quantity}x de{' '}
+                              {installment.quantity}x de{" "}
                               {installment.formattedAmount}
                             </option>
                           ))}
@@ -441,13 +441,12 @@ const Checkout = () => {
             title="Clique aqui para finalizar a compra"
             disabled={isLoading}
           >
-            {isLoading ? 'Finalizando compra...' : 'Finalizar compra'}
-            
+            {isLoading ? "Finalizando compra..." : "Finalizar compra"}
           </Button>
         </form>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Checkout
+export default Checkout;

@@ -1,35 +1,35 @@
-import { useNavigate } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { RootReducer } from '../../store'
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { RootReducer } from "../../store";
 
-import Button from '../Button'
-import Tag from '../Tag'
+import Button from "../Button";
+import Tag from "../Tag";
 
-import { getTotalPrice, parseToBrl } from '../../utils'
-import { close, remove } from '../../store/reducers/cart'
-import * as S from './styles'
+import { getTotalPrice, parseToBrl } from "../../utils";
+import { close, remove } from "../../store/reducers/cart";
+import * as S from "./styles";
 
 const Cart = () => {
-  const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
-  const navigate = useNavigate()
+  const { isOpen, items } = useSelector((state: RootReducer) => state.cart);
+  const navigate = useNavigate();
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const closeCart = () => {
-    dispatch(close())
-  }
+    dispatch(close());
+  };
 
   const removeItem = (id: number) => {
-    dispatch(remove(id))
-  }
+    dispatch(remove(id));
+  };
 
   const goToCheckout = () => {
-    navigate('/checkout')
-    closeCart()
-  }
+    navigate("/checkout");
+    closeCart();
+  };
 
   return (
-    <S.CartContainer className={isOpen ? 'is-open' : ''}>
+    <S.CartContainer className={isOpen ? "is-open" : ""}>
       <S.Overlay onClick={closeCart} />
       <S.Sidebar>
         {items.length > 0 ? (
@@ -50,8 +50,8 @@ const Cart = () => {
             </ul>
             <S.Quantity>{items.length} Jogos no carrinho</S.Quantity>
             <S.Prices>
-              Total de {parseToBrl(getTotalPrice(items))}{' '}
-              <span>Em até 6x sem juros</span>{' '}
+              Total de {parseToBrl(getTotalPrice(items))}{" "}
+              <span>Em até 6x sem juros</span>{" "}
             </S.Prices>
             <Button
               onClick={goToCheckout}
@@ -69,7 +69,7 @@ const Cart = () => {
         )}
       </S.Sidebar>
     </S.CartContainer>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;

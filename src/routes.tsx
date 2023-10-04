@@ -1,8 +1,8 @@
-import { Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
-import Categories from './pages/Categories'
-import Product from './pages/Product'
-import Checkout from './pages/Checkout'
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Categories from "./pages/Categories";
+import Product from "./pages/Product";
+import Checkout from "./pages/Checkout";
 
 const Rotas = () => (
   <Routes>
@@ -11,6 +11,6 @@ const Rotas = () => (
     <Route path="/product/:id" element={<Product />} />
     <Route path="/checkout" element={<Checkout />} />
   </Routes>
-)
+);
 
-export default Rotas
+export default Rotas;
