@@ -29,7 +29,9 @@ const Header = () => {
             <span />
           </Hamburguer>
           <Link title="Página inicial" to="/">
-            <img src={logo} alt="EPLAY" />
+            <h1>
+              <img src={logo} alt="EPLAY" />
+            </h1>
           </Link>
           <nav>
             <S.Links>
