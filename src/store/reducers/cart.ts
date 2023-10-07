@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 /* eslint-disable */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-=======
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
->>>>>>> 2d6f4030e4022b734b7e921b838abb27969d21e5
 
 type CartState = {
   items: Game[];

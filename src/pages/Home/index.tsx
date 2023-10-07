@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 /* eslint-disable */
 import Banner from '../../Components/Banner'
-=======
-import Banner from "../../Components/Banner";
->>>>>>> 2d6f4030e4022b734b7e921b838abb27969d21e5
 
 import ProductsList from "../../Components/ProductsList";
 

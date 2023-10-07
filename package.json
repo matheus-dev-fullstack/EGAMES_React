@@ -60,20 +60,6 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-<<<<<<< HEAD
     "prettier": "^2.8.8"
-=======
-    "prettier": "2.8.8"
-  },
-  "prettier": {
-    "overrides": [
-      {
-        "files": "*.d.ts",
-        "options": {
-          "parser": "typescript"
-        }
-      }
-    ]
->>>>>>> 2d6f4030e4022b734b7e921b838abb27969d21e5
   }
 }

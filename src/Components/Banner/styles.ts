@@ -1,11 +1,6 @@
-<<<<<<< HEAD
 /* eslint-disable */
 import styled, { keyframes } from 'styled-components'
 import { TagContainer } from '../Tag/styles'
-=======
-import styled, { keyframes } from "styled-components";
-import { TagContainer } from "../Tag/styles";
->>>>>>> 2d6f4030e4022b734b7e921b838abb27969d21e5
 
 const fadeInAnimation = keyframes`
   0% {

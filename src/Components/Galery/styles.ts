@@ -1,11 +1,6 @@
-<<<<<<< HEAD
 /* eslint-disable */
 import styled from 'styled-components'
 import { colors } from '../../styles'
-=======
-import styled from "styled-components";
-import { colors } from "../../styles";
->>>>>>> 2d6f4030e4022b734b7e921b838abb27969d21e5
 
 export const Itens = styled.ul`
   display: flex;

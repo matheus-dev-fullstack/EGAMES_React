@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 /* eslint-disable */
 import * as S from './styles'
-=======
-import * as S from "./styles";
->>>>>>> 2d6f4030e4022b734b7e921b838abb27969d21e5
 
 export type Props = {
   type: "button" | "link" | "submit";

@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 /* eslint-disable */
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-=======
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
->>>>>>> 2d6f4030e4022b734b7e921b838abb27969d21e5
 
 type Product = {
   id: number;

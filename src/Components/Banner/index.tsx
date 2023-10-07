@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* eslint-disable */
 import Tag from '../Tag'
 import Button from '../Button'
@@ -7,14 +6,6 @@ import { useGetFeaturedGameQuery } from '../../services/api'
 import { parseToBrl } from '../../utils'
 import { MoonLoader } from 'react-spinners'
 import Loader from '../Loader'
-=======
-import Tag from "../Tag";
-import Button from "../Button";
-import { Image, Title, Prices } from "./styles";
-import { useGetFeaturedGameQuery } from "../../services/api";
-import { parseToBrl } from "../../utils";
-import Loader from "../Loader";
->>>>>>> 2d6f4030e4022b734b7e921b838abb27969d21e5
 
 const Banner = () => {
   const { data: game } = useGetFeaturedGameQuery();

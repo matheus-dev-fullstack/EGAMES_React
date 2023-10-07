@@ -1,21 +1,15 @@
-<<<<<<< HEAD
-/* eslint-disable */
-import Tag from '../Tag'
+import Tag from "../Tag"
 import * as S from './styles'
-=======
-import Tag from "../Tag";
-import * as S from "./styles";
->>>>>>> 2d6f4030e4022b734b7e921b838abb27969d21e5
 
 type Props = {
-  title: string;
-  category: string;
-  system: string;
-  description: string;
-  infos: string[];
-  image: string;
-  id: number;
-};
+  title: string
+  category: string
+  system: string
+  description: string
+  infos: string[]
+  image: string
+  id: number
+}
 
 const Product = ({
   title,

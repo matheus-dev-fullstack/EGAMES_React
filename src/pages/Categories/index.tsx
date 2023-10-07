@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 /* eslint-disable */
 import ProductsList from '../../Components/ProductsList'
-=======
-import ProductsList from "../../Components/ProductsList";
->>>>>>> 2d6f4030e4022b734b7e921b838abb27969d21e5
 
 import {
   useGetActionGamesQuery,
@@ -71,17 +67,7 @@ const Categories = () => {
         id="fight"
         isLoading={isLoadingFight}
       />
-<<<<<<< HEAD
-      <ProductsList games={rpgGames} title="RPG" background="gray" id="rpg" isLoading={isLoadingFight}/>
-=======
-      <ProductsList
-        games={rpgGames}
-        title="RPG"
-        background="gray"
-        id="rpg"
-        isLoading={isLoadingRpg}
-      />
->>>>>>> 2d6f4030e4022b734b7e921b838abb27969d21e5
+      <ProductsList games={rpgGames} title="RPG" background="gray" id="rpg" isLoading={isLoadingRpg}/>
       <ProductsList
         games={simulationGames}
         title="Simulação"

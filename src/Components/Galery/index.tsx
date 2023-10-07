@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* eslint-disable */
 import Section from '../Section'
 import play from '../../assets/images/botao-play 1.png'
@@ -6,15 +5,6 @@ import zoom from '../../assets/images/zoom.png'
 import closeIcon from '../../assets/images/close.png'
 import { useState } from 'react'
 import * as S from './styles'
-=======
-import Section from "../Section";
-import play from "../../assets/images/botao-play 1.png";
-import zoom from "../../assets/images/zoom.png";
-import closeIcon from "../../assets/images/close.png";
-import { useState } from "react";
-import * as S from "./styles";
-
->>>>>>> 2d6f4030e4022b734b7e921b838abb27969d21e5
 type Props = {
   defaultCover: string;
   name: string;
