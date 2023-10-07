@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { colors } from '../../styles'
+import styled from "styled-components";
+import { colors } from "../../styles";
 
 export const Container = styled.div`
   border-radius: 8px;
@@ -23,4 +23,4 @@ export const Container = styled.div`
     font-size: 14px;
     line-height: 22px;
   }
-`
+`;

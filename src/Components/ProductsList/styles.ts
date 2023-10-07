@@ -1,22 +1,26 @@
+<<<<<<< HEAD
 /* eslint-disable */
 import styled from 'styled-components'
+=======
+import styled from "styled-components";
+>>>>>>> 2d6f4030e4022b734b7e921b838abb27969d21e5
 
-import { Props } from '.'
-import { breakpoints, colors } from '../../styles'
-import { Card } from '../Product/styles'
+import { Props } from ".";
+import { breakpoints, colors } from "../../styles";
+import { Card } from "../Product/styles";
 
 export const Container = styled.section<
-  Omit<Props, 'title' | 'games' | 'isLoading'>
+  Omit<Props, "title" | "games" | "isLoading">
 >`
   padding: 32px 0;
   background-color: ${(props) =>
-    props.background === 'black' ? colors.black : colors.gray};
+    props.background === "black" ? colors.black : colors.gray};
 
   ${Card} {
     background-color: ${(props) =>
-      props.background === 'black' ? colors.gray : colors.black};
+      props.background === "black" ? colors.gray : colors.black};
   }
-`
+`;
 export const List = styled.ul`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -30,9 +34,9 @@ export const List = styled.ul`
   @media (max-width: ${breakpoints.tablet}) {
     grid-template-columns: 1fr;
   }
-`
+`;
 
 export const Title = styled.h2`
   font-size: 18px;
   font-weight: bold;
-`
+`;

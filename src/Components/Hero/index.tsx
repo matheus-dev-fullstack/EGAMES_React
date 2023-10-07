@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* eslint-disable */
 import bannerImg from '../../assets/images/fundo_hogwarts.png'
 import Button from '../Button'
@@ -6,18 +7,26 @@ import * as S from './styles'
 import { useDispatch } from 'react-redux'
 import { add, open } from '../../store/reducers/cart'
 import { parseToBrl } from '../../utils'
+=======
+import Button from "../Button";
+import Tag from "../Tag";
+import * as S from "./styles";
+import { useDispatch } from "react-redux";
+import { add, open } from "../../store/reducers/cart";
+import { parseToBrl } from "../../utils";
+>>>>>>> 2d6f4030e4022b734b7e921b838abb27969d21e5
 
 type Props = {
-  game: Game
-}
+  game: Game;
+};
 
 const Hero = ({ game }: Props) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const addToCart = () => {
-    dispatch(add(game))
-    dispatch(open())
-  }
+    dispatch(add(game));
+    dispatch(open());
+  };
 
   return (
     <S.Banner style={{ backgroundImage: `url(${game.media.cover})` }}>
@@ -49,6 +58,6 @@ const Hero = ({ game }: Props) => {
         </S.Infos>
       </div>
     </S.Banner>
-  )
-}
-export default Hero
+  );
+};
+export default Hero;

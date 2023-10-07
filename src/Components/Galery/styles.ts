@@ -1,12 +1,17 @@
+<<<<<<< HEAD
 /* eslint-disable */
 import styled from 'styled-components'
 import { colors } from '../../styles'
+=======
+import styled from "styled-components";
+import { colors } from "../../styles";
+>>>>>>> 2d6f4030e4022b734b7e921b838abb27969d21e5
 
 export const Itens = styled.ul`
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
-`
+`;
 export const Action = styled.div`
   position: absolute;
   top: 0;
@@ -19,7 +24,7 @@ export const Action = styled.div`
   justify-content: center;
   opacity: 0;
   transition: opacity 0.5s ease;
-`
+`;
 
 export const Item = styled.li`
   position: relative;
@@ -39,7 +44,7 @@ export const Item = styled.li`
       transition: opacity 0.5s ease;
     }
   }
-`
+`;
 export const Modal = styled.div`
   position: fixed;
   top: 0;
@@ -64,7 +69,7 @@ export const Modal = styled.div`
     height: 100%;
     background-color: rgba(0, 0, 0, 0.73);
   }
-`
+`;
 export const ModalContent = styled.div`
   position: relative;
   z-index: 1;
@@ -102,4 +107,4 @@ export const ModalContent = styled.div`
     width: 100%;
     height: 480px;
   }
-`
+`;

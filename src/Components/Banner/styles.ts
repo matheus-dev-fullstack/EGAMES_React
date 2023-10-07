@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 /* eslint-disable */
 import styled, { keyframes } from 'styled-components'
 import { TagContainer } from '../Tag/styles'
+=======
+import styled, { keyframes } from "styled-components";
+import { TagContainer } from "../Tag/styles";
+>>>>>>> 2d6f4030e4022b734b7e921b838abb27969d21e5
 
 const fadeInAnimation = keyframes`
   0% {
@@ -9,7 +14,7 @@ const fadeInAnimation = keyframes`
   100% {
     opacity: 1;
   }
-`
+`;
 
 export const Image = styled.div`
   animation: ${fadeInAnimation} 1s ease-in;
@@ -44,20 +49,20 @@ export const Image = styled.div`
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.75);
-    content: '';
+    content: "";
   }
-`
+`;
 export const Title = styled.h2`
   font-size: 36px;
   max-width: 450px;
   margin-bottom: 16px;
-`
+`;
 export const Prices = styled.p`
   font-size: 24px;
 
   span {
     text-decoration: line-through;
   }
-`
+`;
 
-const ImageContainer = styled(Image)``
+// const ImageContainer = styled(Image)``;

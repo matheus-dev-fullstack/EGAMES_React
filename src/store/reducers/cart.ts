@@ -1,41 +1,48 @@
+<<<<<<< HEAD
 /* eslint-disable */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+=======
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+>>>>>>> 2d6f4030e4022b734b7e921b838abb27969d21e5
 
 type CartState = {
-  items: Game[]
-  isOpen: boolean
-}
+  items: Game[];
+  isOpen: boolean;
+};
 
 const initialState: CartState = {
   items: [],
-  isOpen: false
-}
+  isOpen: false,
+};
 
 const cartSlice = createSlice({
-  name: 'cart',
+  name: "cart",
   initialState,
   reducers: {
     add: (state, action: PayloadAction<Game>) => {
-      const game = state.items.find((item) => item.id === action.payload.id)
+      const game = state.items.find((item) => item.id === action.payload.id);
       if (!game) {
-        state.items.push(action.payload)
+        state.items.push(action.payload);
       } else {
-        alert('O jogo já está no carrinho')
+        alert("O jogo já está no carrinho");
       }
     },
     remove: (state, action: PayloadAction<number>) => {
-      state.items = state.items.filter((item) => item.id !== action.payload)
+      state.items = state.items.filter((item) => item.id !== action.payload);
     },
     open: (state) => {
-      state.isOpen = true
+      state.isOpen = true;
     },
     close: (state) => {
-      state.isOpen = false
-    }
-  }
-})
+      state.isOpen = false;
+    },
+    clear: (state) => {
+      state.items = [];
+    },
+  },
+});
 
-cartSlice.actions.add
+cartSlice.actions.add;
 
-export const { add, open, close, remove } = cartSlice.actions
-export default cartSlice.reducer
+export const { add, open, close, remove, clear } = cartSlice.actions;
+export default cartSlice.reducer;

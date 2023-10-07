@@ -1,23 +1,23 @@
-import { Link } from 'react-router-dom'
-import { HashLink } from 'react-router-hash-link'
-import * as S from './styles'
-import logo from '../../assets/images/logo.svg'
-import cartIcon from '../../assets/images/carrinho.svg'
-import { open } from '../../store/reducers/cart'
-import { useDispatch, useSelector } from 'react-redux'
-import { RootReducer } from '../../store'
-import { Hamburguer, HeaderRow, NavMobile } from './styles'
-import { useState } from 'react'
+import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
+import * as S from "./styles";
+import logo from "../../assets/images/logo.svg";
+import cartIcon from "../../assets/images/carrinho.svg";
+import { open } from "../../store/reducers/cart";
+import { useDispatch, useSelector } from "react-redux";
+import { RootReducer } from "../../store";
+import { Hamburguer, HeaderRow, NavMobile } from "./styles";
+import { useState } from "react";
 
 const Header = () => {
-  const dispatch = useDispatch()
-  const { items } = useSelector((state: RootReducer) => state.cart)
+  const dispatch = useDispatch();
+  const { items } = useSelector((state: RootReducer) => state.cart);
 
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const openCart = () => {
-    dispatch(open())
-  }
+    dispatch(open());
+  };
 
   return (
     <S.HeaderBar>
@@ -29,7 +29,9 @@ const Header = () => {
             <span />
           </Hamburguer>
           <Link title="Página inicial" to="/">
-            <img src={logo} alt="EPLAY" />
+            <h1>
+              <img src={logo} alt="EPLAY" />
+            </h1>
           </Link>
           <nav>
             <S.Links>
@@ -60,12 +62,12 @@ const Header = () => {
             </S.Links>
           </nav>
         </div>
-        <S.CartButton onClick={openCart}>
+        <S.CartButton role="button" onClick={openCart}>
           {items.length} <span> - produto(s)</span>
           <img src={cartIcon} alt="Carrinho" />
         </S.CartButton>
       </HeaderRow>
-      <NavMobile className={isMenuOpen ? 'is-open' : ''}>
+      <NavMobile className={isMenuOpen ? "is-open" : ""}>
         <S.Links>
           <S.LinkItem>
             <Link
@@ -97,7 +99,7 @@ const Header = () => {
         </S.Links>
       </NavMobile>
     </S.HeaderBar>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

@@ -1,84 +1,88 @@
+<<<<<<< HEAD
 /* eslint-disable */
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+=======
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+>>>>>>> 2d6f4030e4022b734b7e921b838abb27969d21e5
 
 type Product = {
-  id: number
-  price: number
-}
+  id: number;
+  price: number;
+};
 
 type PurchasePayload = {
-  products: Product[]
+  products: Product[];
   billing: {
-    name: string
-    email: string
-    document: string
-  }
+    name: string;
+    email: string;
+    document: string;
+  };
   delivery: {
-    email: string
-  }
+    email: string;
+  };
   payment: {
     card: {
-      active: boolean
+      active: boolean;
       owner?: {
-        name: string
-        document: string
-      }
-      name?: string
-      number?: string
+        name: string;
+        document: string;
+      };
+      name?: string;
+      number?: string;
       expires?: {
-        month: number
-        year: number
-      }
-      code?: number
-    }
-    installments: number
-  }
-}
+        month: number;
+        year: number;
+      };
+      code?: number;
+    };
+    installments: number;
+  };
+};
 type PurchaseResponse = {
-  orderId: string
-}
+  orderId: string;
+};
 
 const api = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://fake-api-tau.vercel.app/api/eplay'
+    baseUrl: "https://fake-api-tau.vercel.app/api/eplay",
   }),
   endpoints: (builder) => ({
     getFeaturedGame: builder.query<Game, void>({
-      query: () => 'destaque'
+      query: () => "destaque",
     }),
     getOnSale: builder.query<Game[], void>({
-      query: () => 'promocoes'
+      query: () => "promocoes",
     }),
     getSoon: builder.query<Game[], void>({
-      query: () => 'em-breve'
+      query: () => "em-breve",
     }),
     getActionGames: builder.query<Game[], void>({
-      query: () => 'acao'
+      query: () => "acao",
     }),
     getSportGames: builder.query<Game[], void>({
-      query: () => 'esportes'
+      query: () => "esportes",
     }),
     getSimulationGames: builder.query<Game[], void>({
-      query: () => 'simulacao'
+      query: () => "simulacao",
     }),
     getFightGames: builder.query<Game[], void>({
-      query: () => 'luta'
+      query: () => "luta",
     }),
     getRpgGames: builder.query<Game[], void>({
-      query: () => 'rpg'
+      query: () => "rpg",
     }),
     getGame: builder.query<Game, string>({
-      query: (id) => `jogos/${id}`
+      query: (id) => `jogos/${id}`,
     }),
     purchase: builder.mutation<PurchaseResponse, PurchasePayload>({
       query: (body) => ({
-        url: 'checkout',
-        method: 'POST',
-        body
-      })
-    })
-  })
-})
+        url: "checkout",
+        method: "POST",
+        body,
+      }),
+    }),
+  }),
+});
 
 export const {
   useGetFeaturedGameQuery,
@@ -90,6 +94,6 @@ export const {
   useGetFightGamesQuery,
   useGetRpgGamesQuery,
   useGetGameQuery,
-  usePurchaseMutation
-} = api
-export default api
+  usePurchaseMutation,
+} = api;
+export default api;

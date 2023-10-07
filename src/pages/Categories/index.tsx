@@ -1,13 +1,17 @@
+<<<<<<< HEAD
 /* eslint-disable */
 import ProductsList from '../../Components/ProductsList'
+=======
+import ProductsList from "../../Components/ProductsList";
+>>>>>>> 2d6f4030e4022b734b7e921b838abb27969d21e5
 
 import {
   useGetActionGamesQuery,
   useGetFightGamesQuery,
   useGetRpgGamesQuery,
   useGetSimulationGamesQuery,
-  useGetSportGamesQuery
-} from '../../services/api'
+  useGetSportGamesQuery,
+} from "../../services/api";
 
 const Categories = () => {
   // const [gamesAcao, setGamesAcao] = useState<Game[]>([])
@@ -35,14 +39,14 @@ const Categories = () => {
   // }, [])
 
   const { data: actionGames, isLoading: isLoadingAction } =
-    useGetActionGamesQuery()
+    useGetActionGamesQuery();
   const { data: fightGames, isLoading: isLoadingFight } =
-    useGetFightGamesQuery()
-  const { data: rpgGames, isLoading: isLoadingRpg } = useGetRpgGamesQuery()
+    useGetFightGamesQuery();
+  const { data: rpgGames, isLoading: isLoadingRpg } = useGetRpgGamesQuery();
   const { data: sportGames, isLoading: isLoadingSport } =
-    useGetSportGamesQuery()
+    useGetSportGamesQuery();
   const { data: simulationGames, isLoading: isLoadingSimulation } =
-    useGetSimulationGamesQuery()
+    useGetSimulationGamesQuery();
 
   return (
     <>
@@ -67,7 +71,17 @@ const Categories = () => {
         id="fight"
         isLoading={isLoadingFight}
       />
+<<<<<<< HEAD
       <ProductsList games={rpgGames} title="RPG" background="gray" id="rpg" isLoading={isLoadingFight}/>
+=======
+      <ProductsList
+        games={rpgGames}
+        title="RPG"
+        background="gray"
+        id="rpg"
+        isLoading={isLoadingRpg}
+      />
+>>>>>>> 2d6f4030e4022b734b7e921b838abb27969d21e5
       <ProductsList
         games={simulationGames}
         title="Simulação"
@@ -76,6 +90,6 @@ const Categories = () => {
         isLoading={isLoadingSimulation}
       />
     </>
-  )
-}
-export default Categories
+  );
+};
+export default Categories;

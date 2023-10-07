@@ -1,17 +1,17 @@
-import styled, { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 export const colors = {
-  white: '#EEEEEE',
-  black: '#111111',
-  gray: '#333333',
-  green: '#10AC84',
-  lightGray: '#A3A3A3'
-}
+  white: "#EEEEEE",
+  black: "#111111",
+  gray: "#333333",
+  green: "#10AC84",
+  lightGray: "#A3A3A3",
+};
 
 export const breakpoints = {
-  desktop: '1024px',
-  tablet: '768px'
-}
+  desktop: "1024px",
+  tablet: "768px",
+};
 
 export const GlobalCss = createGlobalStyle`
   * {
@@ -37,4 +37,4 @@ export const GlobalCss = createGlobalStyle`
       max-width: 80%;
     }
   }
-`
+`;

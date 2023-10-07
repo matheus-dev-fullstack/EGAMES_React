@@ -1,6 +1,6 @@
-import styled from 'styled-components'
-import { breakpoints, colors } from '../../styles'
-import { TagContainer } from '../Tag/styles'
+import styled from "styled-components";
+import { breakpoints, colors } from "../../styles";
+import { TagContainer } from "../Tag/styles";
 
 export const Banner = styled.div`
   position: relative;
@@ -25,7 +25,7 @@ export const Banner = styled.div`
     height: 100%;
     top: 0;
     left: 0;
-    content: '';
+    content: "";
     opacity: 0.56;
   }
 
@@ -41,7 +41,7 @@ export const Banner = styled.div`
     height: 100%;
     justify-content: space-between;
   }
-`
+`;
 export const Infos = styled.div`
   padding: 16px;
   background-color: ${colors.black};
@@ -62,4 +62,4 @@ export const Infos = styled.div`
       text-decoration: line-through;
     }
   }
-`
+`;

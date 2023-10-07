@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { breakpoints, colors } from '../../styles'
+import styled from "styled-components";
+import { breakpoints, colors } from "../../styles";
 
 export const Links = styled.ul`
   display: flex;
@@ -9,7 +9,7 @@ export const Links = styled.ul`
     margin-left: 0;
     display: block;
   }
-`
+`;
 
 export const HeaderBar = styled.header`
   background-color: ${colors.gray};
@@ -17,12 +17,17 @@ export const HeaderBar = styled.header`
   border-radius: 16px;
   margin-bottom: 80px;
 
-  a {
+  a,
+  span {
     color: ${colors.white};
     text-decoration: none;
     font-weight: bold;
   }
-`
+
+  h1 {
+    line-height: 0;
+  }
+`;
 export const HeaderRow = styled.div`
   display: flex;
   align-items: center;
@@ -41,14 +46,14 @@ export const HeaderRow = styled.div`
       }
     }
   }
-`
+`;
 export const NavMobile = styled.nav`
   display: none;
 
   &.is-open {
     display: block;
   }
-`
+`;
 
 export const LinkItem = styled.li`
   margin-right: 16px;
@@ -63,8 +68,8 @@ export const LinkItem = styled.li`
       text-align: center;
     }
   }
-`
-export const CartButton = styled.a`
+`;
+export const CartButton = styled.span`
   display: flex;
   cursor: pointer;
 
@@ -76,7 +81,7 @@ export const CartButton = styled.a`
       display: none;
     }
   }
-`
+`;
 export const Hamburguer = styled.div`
   width: 32px;
   cursor: pointer;
@@ -92,4 +97,4 @@ export const Hamburguer = styled.div`
       display: none;
     }
   }
-`
+`;

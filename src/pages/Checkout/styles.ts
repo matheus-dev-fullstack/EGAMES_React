@@ -1,25 +1,29 @@
-import styled from 'styled-components'
-import { colors } from '../../styles'
+import styled from "styled-components";
+import { colors, breakpoints } from "../../styles";
 
 type InputGroupProps = {
-  maxWidth?: string
-}
+  maxWidth?: string;
+};
 type RowProps = {
-  marginTop?: string
-}
+  marginTop?: string;
+};
 type TabButtonProps = {
-  isActive: boolean
-}
+  isActive: boolean;
+};
 export const Row = styled.div<RowProps>`
   display: flex;
   column-gap: 24px;
-  margin-top: ${(props) => props.marginTop || 'auto'};
+  margin-top: ${(props) => props.marginTop || "auto"};
   align-items: flex-end;
-`
+
+  @media (max-width: ${breakpoints.tablet}) {
+    display: block;
+  }
+`;
 export const InputGroup = styled.div<InputGroupProps>`
   flex: auto;
 
-  max-width: ${(props) => props.maxWidth || 'auto'};
+  max-width: ${(props) => props.maxWidth || "auto"};
 
   label {
     font-size: 14px;
@@ -39,7 +43,10 @@ export const InputGroup = styled.div<InputGroupProps>`
       border: 1px solid red;
     }
   }
-`
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-top: 16px;
+  }
+`;
 export const TagButton = styled.button<TabButtonProps>`
   border-radius: 8px;
   font-size: 14px;
@@ -56,4 +63,8 @@ export const TagButton = styled.button<TabButtonProps>`
   img {
     margin-right: 8px;
   }
-`
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-top: 8px;
+    width: 100%;
+  }
+`;
