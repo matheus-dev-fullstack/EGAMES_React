@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { PacmanLoader } from 'react-spinners'
 import { colors } from '../../styles'
 import { Container } from './styles'

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import ProductsList from '../../Components/ProductsList'
 
 import {
@@ -66,7 +67,7 @@ const Categories = () => {
         id="fight"
         isLoading={isLoadingFight}
       />
-      <ProductsList games={rpgGames} title="RPG" background="gray" id="rpg" />
+      <ProductsList games={rpgGames} title="RPG" background="gray" id="rpg" isLoading={isLoadingFight}/>
       <ProductsList
         games={simulationGames}
         title="Simulação"

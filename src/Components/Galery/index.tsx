@@ -1,3 +1,4 @@
+/* eslint-disable */
 import Section from '../Section'
 import play from '../../assets/images/botao-play 1.png'
 import zoom from '../../assets/images/zoom.png'

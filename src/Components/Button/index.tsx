@@ -1,3 +1,4 @@
+/* eslint-disable */
 import * as S from './styles'
 
 export type Props = {

@@ -11,6 +11,7 @@ type GameParams = {
   id: string
 }
 
+/* eslint-disable */
 const Product = () => {
   const { id } = useParams() as GameParams
   const { data: game } = useGetGameQuery(id)

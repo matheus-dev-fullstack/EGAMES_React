@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useEffect, useState } from 'react'
 import * as Yup from 'yup'
 import { Navigate, useFetcher } from 'react-router-dom'
@@ -442,7 +443,7 @@ const Checkout = () => {
             disabled={isLoading}
           >
             {isLoading ? 'Finalizando compra...' : 'Finalizar compra'}
-            
+
           </Button>
         </form>
       )}

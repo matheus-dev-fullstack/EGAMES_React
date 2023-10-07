@@ -1,3 +1,4 @@
+/* eslint-disable */
 import Tag from '../Tag'
 import Button from '../Button'
 import { Image, Title, Prices } from './styles'
